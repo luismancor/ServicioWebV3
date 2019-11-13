@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 String nombre = txtUsuario.getText().toString().trim();
                 String clave = txtClave.getText().toString().trim();
                 RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-                String url ="http://192.168.0.13:8080/WebApp06_WebAppSistema/rest/usuarios/login?";
+                String url ="http://192.168.0.27:8080/WebApp06_WebAppSistema/rest/usuarios/login?";
                 url = url + "nombre=" + nombre + "&clave=" + clave;
 
                 JsonArrayRequest stringRequest = new JsonArrayRequest(url,
