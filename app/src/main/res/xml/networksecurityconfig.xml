@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<networksecurityconfig xmlns:android="http://schemas.android.com/apk/res/android">
+<network-security-config xmlns:android="http://schemas.android.com/apk/res/android">
 
     <base-config cleartextTrafficPermitted="false"/>
     <domain-config cleartextTrafficPermitted="true">
-        <domain includeSubdomains="true">192.168.0.27</domain>
+        <domain includeSubdomains="true">172.22.136.17</domain>
     </domain-config>
-</networksecurityconfig>
+</network-security-config>

@@ -1,7 +1,9 @@
 package com.example.serviciowebv3;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -47,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 String nombre = txtUsuario.getText().toString().trim();
                 String clave = txtClave.getText().toString().trim();
                 RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-                String url ="http://192.168.0.27:8080/WebApp06_WebAppSistema/rest/usuarios/login?";
+                String url ="http://172.22.136.17:8080/WebApp06_WebAppSistema/rest/usuarios/login?";
                 url = url + "nombre=" + nombre + "&clave=" + clave;
 
                 JsonArrayRequest stringRequest = new JsonArrayRequest(url,
@@ -81,5 +83,31 @@ public class MainActivity extends AppCompatActivity {
                 queue.add(stringRequest);
             };
         });
+    }
+
+
+    public void registrar(View v){
+        Intent addUsuaurio = new Intent(this, registrarse.class);
+        startActivity(addUsuaurio);
+        finish();
+    }
+
+    public void SalirAplicacion(View v){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Exit");
+        builder.setMessage("¿Quiere cerrar la app");
+        builder.setPositiveButton("Salir", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+
+                finish();
+            }
+        });
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+
+            }
+        });
+        AlertDialog alerta = builder.create();
+        alerta.show();
     }
 }
